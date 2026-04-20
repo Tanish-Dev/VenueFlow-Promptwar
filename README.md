@@ -1,117 +1,87 @@
 # VenueFlow Platform
 
-VenueFlow now runs as a realtime full-stack prototype instead of a static mock page.
+VenueFlow is a realtime venue operations dashboard and simulation system for major sports events.
 
-## What Changed
+## Chosen Vertical
 
-- Added a backend crowd simulation and rules engine.
-- Added control APIs for gate modes, staffing, scenarios, emergency corridors, and announcements.
-- Added a sensor ingestion API to stream crowd observations into the model.
-- Added a WebSocket realtime channel for live state streaming.
+Sports and live-event venue operations intelligence.
 
-## Architecture
+The product focuses on stadium flow management, gate throughput, crowd safety, staffing allocation, and attendee navigation during high-density match days.
 
-- `server/engine.js`: Core simulation, control state, KPI calculations, alerts.
-- `server/rulesEngine.js`: Playbook recommendation logic.
-- `server/index.js`: REST API, WebSocket hub, static hosting.
-- `venueflow.html`: Existing UI frontend.
+## Approach and Logic
 
-## Run
+The redesign follows a light dashboard language inspired by the provided reference while preserving VenueFlow's unique information architecture.
 
-1. Install dependencies:
+Design and product logic used:
+
+- Keep all existing simulation content and controls instead of rebuilding from scratch.
+- Shift visual direction to bright surfaces, soft neutral grays, and limited green accents.
+- Improve scanability through card grouping, rounded pill controls, and clear metric emphasis.
+- Preserve all existing DOM ids and interaction hooks so realtime logic and backend APIs remain unchanged.
+- Avoid direct imitation of the reference layout by keeping VenueFlow-specific modules: heatmap, smart path, queue advisor, ops controls, and fan hub.
+
+## How the Solution Works
+
+### Frontend
+
+- Single-page interface in [index.html](index.html).
+- Three views: Attendee, Operations, and Fan Hub.
+- Live rendering loop updates map density, KPIs, route recommendations, queue status, weather strip, and alerts.
+
+### Simulation and Rules
+
+- Local simulation model computes zone occupancy, velocity, density, wait times, and phase transitions.
+- Rules engine generates playbook actions and coordination events from live conditions.
+
+### Realtime Backend (Optional)
+
+- REST + WebSocket backend in [server/index.js](server/index.js).
+- Backend mode syncs UI with server snapshots and control commands.
+
+Core files:
+
+- [server/engine.js](server/engine.js): simulation state + control state
+- [server/rulesEngine.js](server/rulesEngine.js): recommended actions
+- [server/index.js](server/index.js): API + websocket endpoint
+- [index.html](index.html): interactive dashboard frontend
+
+## Assumptions Made
+
+- Users need a web-based control surface that can run in local simulation mode without backend dependencies.
+- A single accent family (green) is enough for the primary visual hierarchy; warning and critical states still use amber/red semantics.
+- Existing feature depth is more valuable than a full structural rewrite, so interaction logic was retained and only visual language was modernized.
+- The attached reference is a direction for tone and aesthetics, not a template to clone component-by-component.
+
+## Run Locally
+
+1. Install dependencies.
 
 ```bash
 npm install
 ```
 
-2. Start the platform:
+2. Start development server.
 
 ```bash
 npm run dev
 ```
 
-3. Open:
+3. Open these endpoints.
 
-- Main UI: `http://localhost:8080/`
-- API health: `http://localhost:8080/api/health`
-- Realtime stream: `ws://localhost:8080/realtime`
+- UI: http://localhost:8080/
+- Health: http://localhost:8080/api/health
+- Realtime: ws://localhost:8080/realtime
 
-## Deploy on Netlify
+## Backend Mode URL Pattern
 
-This repo includes `netlify.toml`, so root traffic is served from `venueflow.html` automatically.
+Use backend mode from any hosted frontend URL:
 
-### Option 1: Static Deploy (fastest)
+```text
+?mode=backend&api=https://your-backend.example.com
+```
 
-Use this if you want quick hosting of the full UI and local simulation mode.
+Optional websocket override:
 
-1. Push this folder to GitHub.
-2. In Netlify, choose **Add new site** -> **Import an existing project**.
-3. Select this repository.
-4. Build settings:
-
-- Build command: _(leave empty)_
-- Publish directory: `.`
-
-5. Deploy.
-
-Your site runs immediately in local simulation mode.
-
-### Option 2: Netlify Frontend + Remote Backend (full realtime control)
-
-Netlify is great for the frontend. For persistent simulation APIs + WebSocket realtime stream, run the backend on a Node host (Render, Railway, Fly.io, etc.), then point the frontend to it.
-
-1. Deploy backend (`server/index.js`) to a Node host.
-2. Open your Netlify URL with query params:
-
-`https://your-site.netlify.app/?mode=backend&api=https://your-backend.example.com`
-
-3. Optional: if your WebSocket endpoint differs, add:
-
-`&ws=wss://your-backend.example.com/realtime`
-
-The frontend will then pull `/api` data and sync realtime snapshots from that backend.
-
-## Key APIs
-
-### Read APIs
-
-- `GET /api/snapshot`
-- `GET /api/metrics`
-- `GET /api/playbook`
-- `GET /api/logs`
-- `GET /api/options`
-
-### Control APIs
-
-- `POST /api/control/scenario`
-- `POST /api/control/speed`
-- `POST /api/control/emergency`
-- `POST /api/control/gate`
-- `POST /api/control/staff/deploy`
-- `POST /api/control/staff/release`
-- `POST /api/control/announcement`
-- `POST /api/control/playbook`
-
-### Sensor Ingestion
-
-- `POST /api/ingest/sensors`
-
-Example payload:
-
-```json
-{
-  "readings": [
-    {
-      "zoneId": "concourse-n",
-      "density": 0.82,
-      "confidence": 0.91,
-      "ttlSec": 45
-    },
-    {
-      "zoneId": "gate-a",
-      "count": 610,
-      "confidence": 0.88
-    }
-  ]
-}
+```text
+&ws=wss://your-backend.example.com/realtime
 ```

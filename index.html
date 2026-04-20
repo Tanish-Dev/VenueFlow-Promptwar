@@ -11,64 +11,68 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Poppins:wght@400&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
     <style>
       /* ============================================
        CSS CUSTOM PROPERTIES & DESIGN SYSTEM
        ============================================ */
       :root {
-        --bg-void: #07080d;
-        --bg-primary: #0b0d14;
-        --bg-secondary: #11141e;
-        --bg-tertiary: #171b28;
-        --bg-card: rgba(17, 20, 30, 0.85);
-        --bg-card-solid: #11141e;
-        --bg-card-hover: #1c2033;
-        --bg-glass: rgba(17, 20, 30, 0.65);
-        --accent-cyan: #00f0ff;
-        --accent-cyan-dim: rgba(0, 240, 255, 0.12);
-        --accent-cyan-glow: rgba(0, 240, 255, 0.35);
-        --accent-violet: #8b5cf6;
-        --accent-violet-dim: rgba(139, 92, 246, 0.12);
-        --accent-amber: #fbbf24;
-        --accent-amber-dim: rgba(251, 191, 36, 0.12);
-        --accent-rose: #f43f5e;
-        --accent-rose-dim: rgba(244, 63, 94, 0.12);
-        --accent-emerald: #34d399;
-        --accent-emerald-dim: rgba(52, 211, 153, 0.12);
-        --accent-blue: #3b82f6;
-        --text-primary: #edf0f7;
-        --text-secondary: #7c8298;
-        --text-dim: #4a4f65;
-        --text-bright: #ffffff;
-        --border-subtle: rgba(255, 255, 255, 0.05);
-        --border-medium: rgba(255, 255, 255, 0.08);
-        --border-focus: rgba(0, 240, 255, 0.4);
+        --bg-void: #eff2f0;
+        --bg-primary: #f7f9f8;
+        --bg-secondary: #ffffff;
+        --bg-tertiary: #f1f4f2;
+        --bg-card: rgba(255, 255, 255, 0.9);
+        --bg-card-solid: #ffffff;
+        --bg-card-hover: #e9efeb;
+        --bg-glass: rgba(255, 255, 255, 0.78);
+        --accent-cyan: #60cb8d;
+        --accent-cyan-dim: rgba(96, 203, 141, 0.16);
+        --accent-cyan-glow: rgba(96, 203, 141, 0.32);
+        --accent-violet: #232a33;
+        --accent-violet-dim: rgba(35, 42, 51, 0.1);
+        --accent-amber: #daaf44;
+        --accent-amber-dim: rgba(218, 175, 68, 0.18);
+        --accent-rose: #dc636e;
+        --accent-rose-dim: rgba(220, 99, 110, 0.14);
+        --accent-emerald: #2fb670;
+        --accent-emerald-dim: rgba(47, 182, 112, 0.14);
+        --accent-blue: #3482d1;
+        --text-primary: #1f252b;
+        --text-secondary: #5d6772;
+        --text-dim: #7f8994;
+        --text-bright: #0f1419;
+        --border-subtle: rgba(15, 20, 25, 0.08);
+        --border-medium: rgba(15, 20, 25, 0.14);
+        --border-focus: rgba(96, 203, 141, 0.4);
         --radius-xs: 6px;
         --radius-sm: 8px;
         --radius-md: 12px;
         --radius-lg: 16px;
         --radius-xl: 20px;
         --radius-2xl: 28px;
-        --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-        --font-mono: "JetBrains Mono", "Fira Code", monospace;
+        --font-body: "Inter", "Poppins", "Segoe UI", sans-serif;
+        --font-mono: "Inter", "Poppins", "Segoe UI", sans-serif;
         --transition-micro: 0.1s cubic-bezier(0.4, 0, 0.2, 1);
         --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         --transition-normal: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-        --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-        --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+        --shadow-sm: 0 2px 6px rgba(15, 20, 25, 0.05);
+        --shadow-md: 0 12px 26px rgba(15, 20, 25, 0.08);
+        --shadow-lg: 0 26px 48px rgba(15, 20, 25, 0.12);
         --shadow-glow-cyan:
-          0 0 30px rgba(0, 240, 255, 0.15), 0 0 60px rgba(0, 240, 255, 0.05);
-        --shadow-glow-violet: 0 0 30px rgba(139, 92, 246, 0.15);
-        --shadow-glow-rose: 0 0 30px rgba(244, 63, 94, 0.2);
-        --heat-cool: #00f0ff;
-        --heat-warm: #fbbf24;
-        --heat-hot: #f43f5e;
+          0 0 22px rgba(96, 203, 141, 0.22), 0 0 42px rgba(96, 203, 141, 0.08);
+        --shadow-glow-violet: 0 0 24px rgba(35, 42, 51, 0.14);
+        --shadow-glow-rose: 0 0 24px rgba(220, 99, 110, 0.18);
+        --heat-cool: #e0efe6;
+        --heat-warm: #95dbb3;
+        --heat-hot: #5fc88c;
       }
 
       /* ============================================
@@ -90,12 +94,14 @@
 
       body {
         font-family: var(--font-body);
-        background: var(--bg-void);
+        background: var(--bg-primary);
         color: var(--text-primary);
         min-height: 100vh;
         overflow-x: hidden;
         position: relative;
-        font-size: 14px;
+        font-size: 15px;
+        font-weight: 400;
+        letter-spacing: -0.04em;
         line-height: 1.5;
       }
 
@@ -106,28 +112,29 @@
         inset: 0;
         z-index: 9999;
         pointer-events: none;
-        opacity: 0.025;
+        opacity: 0.012;
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         background-repeat: repeat;
         background-size: 200px;
+        mix-blend-mode: multiply;
       }
 
       /* Ambient gradient orbs */
       body::after {
         content: "";
         position: fixed;
-        top: -20%;
-        left: -10%;
-        width: 60%;
-        height: 60%;
+        top: -28%;
+        left: 48%;
+        width: 45%;
+        height: 68%;
         background: radial-gradient(
           ellipse,
-          rgba(0, 240, 255, 0.04) 0%,
+          rgba(96, 203, 141, 0.11) 0%,
           transparent 70%
         );
         pointer-events: none;
         z-index: -1;
-        animation: ambientDrift 25s ease-in-out infinite alternate;
+        animation: ambientDrift 30s ease-in-out infinite alternate;
       }
 
       h1,
@@ -136,8 +143,8 @@
       h4,
       h5 {
         font-family: var(--font-body);
-        font-weight: 700;
-        letter-spacing: -0.025em;
+        font-weight: 400;
+        letter-spacing: -0.04em;
         line-height: 1.2;
       }
 
@@ -153,6 +160,37 @@
       input,
       select {
         font-family: var(--font-body);
+      }
+
+      body
+        :where(*):not(.fa-solid):not(.fa-regular):not(.fa-brands):not(
+          [class^="fa-"]
+        ):not([class*=" fa-"]) {
+        font-family: var(--font-body);
+        font-weight: 400;
+        letter-spacing: -0.04em;
+      }
+
+      .fa-solid,
+      .fa-regular,
+      .fa-brands,
+      [class^="fa-"],
+      [class*=" fa-"] {
+        letter-spacing: 0;
+      }
+
+      .fa-icon {
+        width: 14px;
+        text-align: center;
+        margin-right: 6px;
+      }
+
+      .fa-inline-icon {
+        margin-right: 5px;
+      }
+
+      .ticker-phase-icon {
+        margin-right: 5px;
       }
 
       /* ============================================
@@ -362,8 +400,8 @@
         top: 0;
         z-index: 100;
         background: rgba(7, 8, 13, 0.8);
-        backdrop-filter: blur(24px) saturate(1.4);
         -webkit-backdrop-filter: blur(24px) saturate(1.4);
+        backdrop-filter: blur(24px) saturate(1.4);
         border-bottom: 1px solid var(--border-subtle);
         padding: 0 20px;
         height: 54px;
@@ -375,7 +413,7 @@
       .logo {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 6px;
       }
 
       .logo-icon {
@@ -397,20 +435,10 @@
       }
 
       .logo-text {
-        font-size: 17px;
-        font-weight: 800;
-        letter-spacing: -0.03em;
-        background: linear-gradient(
-          135deg,
-          var(--accent-cyan),
-          #7efadb 40%,
-          var(--accent-violet)
-        );
-        background-size: 200% 200%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: gradientFlow 8s ease infinite;
+        font-size: 21px;
+        font-weight: 400;
+        letter-spacing: -0.04em;
+        color: #151f27;
       }
 
       .logo-badge {
@@ -440,7 +468,7 @@
 
       .nav-toggle-btn {
         padding: 5px 14px;
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 600;
         border-radius: 9px;
         transition: all var(--transition-fast);
@@ -466,7 +494,7 @@
 
       .top-btn {
         padding: 5px 10px;
-        font-size: 10px;
+        font-size: 11px;
         font-weight: 600;
         border-radius: var(--radius-sm);
         border: 1px solid var(--border-medium);
@@ -535,8 +563,7 @@
       }
 
       .ticker-phase.completed::before {
-        content: "✓ ";
-        font-size: 8px;
+        content: "";
       }
 
       .sim-clock {
@@ -618,7 +645,7 @@
        ============================================ */
       .main-container {
         display: grid;
-        grid-template-columns: 1fr 360px;
+        grid-template-columns: 1fr 1fr;
         gap: 12px;
         padding: 12px 20px 24px;
         min-height: calc(100vh - 120px);
@@ -641,6 +668,7 @@
        ============================================ */
       .card {
         background: var(--bg-card);
+        -webkit-backdrop-filter: blur(12px);
         backdrop-filter: blur(12px);
         border: 1px solid var(--border-subtle);
         border-radius: var(--radius-lg);
@@ -683,7 +711,7 @@
       }
 
       .card-title {
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 700;
         color: var(--text-secondary);
         text-transform: uppercase;
@@ -799,8 +827,7 @@
        VENUE HEATMAP
        ============================================ */
       .heatmap-container {
-        flex: 1;
-        min-height: 460px;
+        min-height: 330px;
       }
 
       .heatmap-card {
@@ -827,7 +854,7 @@
       .heatmap-svg-wrap svg {
         width: 100%;
         height: 100%;
-        max-height: 500px;
+        max-height: 360px;
       }
 
       /* SVG Zone styling */
@@ -964,6 +991,7 @@
       .zone-tooltip {
         position: fixed;
         background: rgba(11, 13, 20, 0.95);
+        -webkit-backdrop-filter: blur(16px);
         backdrop-filter: blur(16px);
         border: 1px solid var(--border-medium);
         border-radius: var(--radius-md);
@@ -1133,6 +1161,10 @@
         text-align: center;
       }
 
+      .wait-icon i {
+        font-size: 14px;
+      }
+
       .wait-info {
         flex: 1;
       }
@@ -1292,6 +1324,7 @@
         padding: 10px 14px;
         border-radius: var(--radius-md);
         background: rgba(11, 13, 20, 0.92);
+        -webkit-backdrop-filter: blur(20px);
         backdrop-filter: blur(20px);
         border: 1px solid var(--border-medium);
         box-shadow: var(--shadow-lg);
@@ -1980,6 +2013,28 @@
       .poll-label {
         font-size: 12px;
         font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .poll-team-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        display: inline-block;
+      }
+
+      .poll-team-dot.home {
+        background: #4f83f3;
+      }
+
+      .poll-team-dot.away {
+        background: #de5f6b;
+      }
+
+      .poll-team-dot.neutral {
+        background: #96a0ab;
       }
 
       .poll-pct {
@@ -2031,6 +2086,10 @@
         border: 1px solid var(--border-medium);
       }
 
+      .ticket-qr i {
+        font-size: 24px;
+      }
+
       .ticket-info {
         flex: 1;
       }
@@ -2059,6 +2118,7 @@
         position: fixed;
         inset: 0;
         background: rgba(0, 0, 0, 0.65);
+        -webkit-backdrop-filter: blur(8px);
         backdrop-filter: blur(8px);
         z-index: 500;
         display: none;
@@ -2297,6 +2357,486 @@
           grid-template-columns: 1fr;
         }
       }
+
+      /* ============================================
+       LIGHT DASHBOARD OVERRIDES
+       ============================================ */
+      .top-bar,
+      .ticker-bar,
+      .weather-strip,
+      .dashboard-intro,
+      .main-container,
+      .ops-grid,
+      .fan-grid {
+        position: relative;
+        z-index: 1;
+      }
+
+      .top-bar {
+        top: 10px;
+        margin: 10px 16px 8px;
+        border-radius: 18px;
+        border: 1px solid var(--border-subtle);
+        background: rgba(255, 255, 255, 0.92);
+        -webkit-backdrop-filter: blur(14px) saturate(1.2);
+        backdrop-filter: blur(14px) saturate(1.2);
+        box-shadow: var(--shadow-md);
+        padding: 0 14px;
+      }
+
+      .logo-icon {
+        background: #151a20;
+        color: #ffffff;
+        box-shadow: none;
+      }
+
+      .logo-text {
+        background: none;
+        color: #151f27;
+        font-size: 21px;
+      }
+
+      .logo-badge {
+        background: rgba(47, 182, 112, 0.16);
+        color: #1b7f4b;
+      }
+
+      .nav-toggle {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        border-radius: 999px;
+        padding: 4px;
+      }
+
+      .nav-toggle-btn {
+        border-radius: 999px;
+        color: var(--text-secondary);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .nav-toggle-btn.active {
+        background: #171c22;
+        color: #ffffff;
+        box-shadow: 0 6px 14px rgba(23, 28, 34, 0.24);
+      }
+
+      .top-btn {
+        border-radius: 999px;
+        background: var(--bg-tertiary);
+        border-color: var(--border-subtle);
+        color: var(--text-secondary);
+        font-size: 11px;
+      }
+
+      .top-btn:hover {
+        border-color: rgba(47, 182, 112, 0.45);
+        color: #1a6f42;
+        background: rgba(96, 203, 141, 0.16);
+      }
+
+      .top-btn.active {
+        background: rgba(96, 203, 141, 0.2);
+        border-color: rgba(47, 182, 112, 0.42);
+        color: #1c7246;
+      }
+
+      .ticker-bar {
+        margin: 0 16px 8px;
+        height: 42px;
+        border-radius: 14px;
+        border: 1px solid var(--border-subtle);
+        background: rgba(255, 255, 255, 0.92);
+      }
+
+      .ticker-phases {
+        gap: 4px;
+      }
+
+      .ticker-phase {
+        border-radius: 999px;
+        font-size: 10px;
+        font-weight: 700;
+      }
+
+      .ticker-phase.active {
+        background: rgba(96, 203, 141, 0.22);
+        color: #155d37;
+      }
+
+      .ticker-phase.completed {
+        color: #85909b;
+        background: rgba(21, 27, 34, 0.05);
+      }
+
+      .sim-clock {
+        color: #155d37;
+      }
+
+      .sim-clock .live-dot {
+        background: var(--accent-emerald);
+        box-shadow: 0 0 0 5px rgba(47, 182, 112, 0.18);
+      }
+
+      .weather-strip {
+        margin: 0 16px 10px;
+        height: 34px;
+        border-radius: 14px;
+        border: 1px solid var(--border-subtle);
+        background: linear-gradient(
+          90deg,
+          rgba(96, 203, 141, 0.13) 0%,
+          rgba(255, 255, 255, 0.94) 62%
+        );
+      }
+
+      .dashboard-intro {
+        margin: 0 16px;
+        padding: 8px 2px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .intro-kicker {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-dim);
+      }
+
+      .intro-title {
+        font-size: clamp(24px, 3.1vw, 38px);
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        color: #171d24;
+      }
+
+      .intro-chip-row {
+        display: flex;
+        gap: 8px;
+      }
+
+      .intro-chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--border-subtle);
+        background: rgba(255, 255, 255, 0.88);
+        color: var(--text-secondary);
+        font-size: 12px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .main-container {
+        grid-template-columns: 1fr 1fr;
+        padding: 12px 16px 24px;
+        gap: 14px;
+      }
+
+      .heatmap-container {
+        min-height: 310px;
+      }
+
+      .heatmap-svg-wrap svg {
+        max-height: 340px;
+      }
+
+      .ops-grid,
+      .fan-grid {
+        padding: 12px 16px 24px;
+        gap: 14px;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid var(--border-subtle);
+        box-shadow: var(--shadow-md);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+      }
+
+      .card::before {
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(96, 203, 141, 0.45) 50%,
+          transparent 100%
+        );
+      }
+
+      .card:hover {
+        border-color: rgba(47, 182, 112, 0.34);
+      }
+
+      .card-title {
+        color: var(--text-secondary);
+        font-size: 12px;
+      }
+
+      .badge-live {
+        background: rgba(96, 203, 141, 0.16);
+        color: #1d7747;
+        border-color: rgba(47, 182, 112, 0.28);
+      }
+
+      .badge-ml {
+        background: rgba(35, 42, 51, 0.1);
+        color: #1f252d;
+        border-color: rgba(35, 42, 51, 0.18);
+      }
+
+      .badge-new {
+        background: rgba(47, 182, 112, 0.14);
+        color: #1d7f4b;
+        border-color: rgba(47, 182, 112, 0.22);
+      }
+
+      .pulse-card {
+        background: linear-gradient(
+          155deg,
+          rgba(96, 203, 141, 0.24) 0%,
+          rgba(255, 255, 255, 0.9) 70%
+        );
+      }
+
+      .pulse-score {
+        text-shadow: none;
+      }
+
+      .pulse-bar-track {
+        background: #e7eeea;
+      }
+
+      .heatmap-svg-wrap {
+        border: 1px solid var(--border-subtle);
+        background: linear-gradient(180deg, #fbfdfc 0%, #f3f7f4 100%);
+      }
+
+      .zone-shape {
+        stroke: rgba(31, 37, 43, 0.16);
+      }
+
+      .zone-shape:hover {
+        stroke: #1d8653;
+        filter: brightness(1.04) drop-shadow(0 0 7px rgba(47, 182, 112, 0.24));
+      }
+
+      .zone-label {
+        fill: rgba(31, 37, 43, 0.62) !important;
+      }
+
+      .gate-marker {
+        fill: #1f252b;
+      }
+
+      .field-label {
+        fill: rgba(31, 37, 43, 0.26);
+      }
+
+      .path-route {
+        stroke: #2e9b61;
+        filter: drop-shadow(0 0 5px rgba(47, 182, 112, 0.34));
+      }
+
+      .path-dot {
+        fill: #2e9b61;
+      }
+
+      .path-input,
+      .ops-select,
+      .modal-input {
+        background: #ffffff;
+        border-color: var(--border-medium);
+        color: var(--text-primary);
+      }
+
+      .path-step,
+      .wait-item,
+      .vqueue-slot,
+      .occ-stat,
+      .dispatch-row,
+      .wave-block,
+      .ops-control-group,
+      .ops-kpi,
+      .gate-cell,
+      .dispatch-pill,
+      .playbook-item,
+      .coord-row,
+      .poll-option,
+      .ticket-mini,
+      .ticket-qr,
+      .modal-result {
+        background: var(--bg-tertiary);
+        border-color: var(--border-subtle);
+      }
+
+      .vqueue-card,
+      .arrival-card,
+      .ops-command-card,
+      .ticket-mini {
+        background: linear-gradient(
+          145deg,
+          rgba(96, 203, 141, 0.14) 0%,
+          rgba(255, 255, 255, 0.92) 70%
+        );
+      }
+
+      .share-btn,
+      .dispatch-btn,
+      .playbook-btn,
+      .ops-mini-btn,
+      .modal-action {
+        border-radius: 10px;
+        border: 1px solid rgba(47, 182, 112, 0.28);
+        background: rgba(96, 203, 141, 0.14);
+        color: #1d7a48;
+      }
+
+      .share-btn:hover,
+      .dispatch-btn:hover,
+      .playbook-btn:hover,
+      .ops-mini-btn:hover,
+      .modal-action:hover {
+        background: #2fb670;
+        color: #ffffff;
+        box-shadow: 0 10px 18px rgba(47, 182, 112, 0.24);
+      }
+
+      .dispatch-btn.done {
+        background: rgba(47, 182, 112, 0.22);
+        border-color: rgba(47, 182, 112, 0.34);
+      }
+
+      .ops-slider {
+        background: linear-gradient(to right, #65cc91, #2fb670);
+      }
+
+      .ops-slider::-webkit-slider-thumb {
+        background: #ffffff;
+        border-color: #2fb670;
+        box-shadow: 0 0 0 6px rgba(47, 182, 112, 0.15);
+      }
+
+      .ops-speed-label,
+      .dispatch-pill-val,
+      .ops-kpi-val,
+      .engagement-val,
+      .ticket-seat,
+      .arrival-time {
+        color: #217e4c;
+      }
+
+      .chart-grid {
+        stroke: rgba(31, 37, 43, 0.16);
+      }
+
+      .chart-text {
+        fill: var(--text-secondary);
+      }
+
+      .toast {
+        background: rgba(255, 255, 255, 0.94);
+        border-color: var(--border-medium);
+        box-shadow: 0 14px 28px rgba(15, 20, 25, 0.12);
+      }
+
+      .toast-msg,
+      .toast-ts,
+      .modal-sub,
+      .arrival-detail,
+      .coord-msg,
+      .dispatch-zone-count,
+      .wait-conf,
+      .wave-text,
+      .ticket-gate {
+        color: var(--text-secondary);
+      }
+
+      .zone-tooltip {
+        background: rgba(255, 255, 255, 0.95);
+        border-color: var(--border-medium);
+      }
+
+      .tooltip-title {
+        color: #171d24;
+      }
+
+      .tooltip-row {
+        color: var(--text-secondary);
+      }
+
+      .tooltip-row .val {
+        color: #171d24;
+      }
+
+      .modal-overlay {
+        background: rgba(18, 22, 29, 0.28);
+      }
+
+      .main-container .card,
+      .ops-grid .card,
+      .fan-grid .card {
+        animation: fadeInUp 0.45s ease both;
+      }
+
+      .main-container .card:nth-child(2),
+      .ops-grid .card:nth-child(2),
+      .fan-grid .card:nth-child(2) {
+        animation-delay: 0.04s;
+      }
+
+      .main-container .card:nth-child(3),
+      .ops-grid .card:nth-child(3),
+      .fan-grid .card:nth-child(3) {
+        animation-delay: 0.08s;
+      }
+
+      @media (max-width: 960px) {
+        .top-bar,
+        .ticker-bar,
+        .weather-strip,
+        .dashboard-intro {
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+
+        .dashboard-intro {
+          flex-direction: column;
+          align-items: flex-start;
+          padding-top: 6px;
+        }
+
+        .intro-chip-row {
+          width: 100%;
+          flex-wrap: wrap;
+        }
+
+        .main-container,
+        .ops-grid,
+        .fan-grid {
+          padding: 10px 10px 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .intro-title {
+          font-size: 26px;
+        }
+
+        .intro-chip {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .top-bar {
+          top: 6px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -2305,9 +2845,7 @@
        ================================ -->
     <header class="top-bar" role="banner">
       <div class="logo">
-        <div class="logo-icon" aria-hidden="true">V</div>
         <span class="logo-text">VenueFlow</span>
-        <span class="logo-badge">LIVE</span>
       </div>
       <div class="top-bar-controls">
         <div class="nav-toggle" role="tablist" aria-label="View selector">
@@ -2318,7 +2856,8 @@
             id="tab-attendee"
             onclick="switchView('attendee')"
           >
-            ⚡ Attendee
+            <i class="fa-solid fa-user-group fa-icon" aria-hidden="true"></i
+            >Attendee
           </button>
           <button
             class="nav-toggle-btn"
@@ -2327,7 +2866,8 @@
             id="tab-ops"
             onclick="switchView('ops')"
           >
-            🎛 Operations
+            <i class="fa-solid fa-sliders fa-icon" aria-hidden="true"></i
+            >Operations
           </button>
           <button
             class="nav-toggle-btn"
@@ -2336,7 +2876,7 @@
             id="tab-fan"
             onclick="switchView('fan')"
           >
-            🎉 Fan Hub
+            <i class="fa-solid fa-medal fa-icon" aria-hidden="true"></i>Fan Hub
           </button>
         </div>
         <button
@@ -2345,14 +2885,19 @@
           onclick="toggleA11y()"
           aria-label="Toggle accessibility mode"
         >
-          ♿ <span class="btn-text">A11Y</span>
+          <i
+            class="fa-solid fa-universal-access fa-icon"
+            aria-hidden="true"
+          ></i>
+          <span class="btn-text">A11Y</span>
         </button>
         <button
           class="top-btn"
           onclick="openGroupSync()"
           aria-label="Open group sync"
         >
-          👥 <span class="btn-text">Group</span>
+          <i class="fa-solid fa-users fa-icon" aria-hidden="true"></i>
+          <span class="btn-text">Group</span>
         </button>
       </div>
     </header>
@@ -2362,13 +2907,52 @@
        ================================ -->
     <div class="ticker-bar" role="navigation" aria-label="Event Timeline">
       <div class="ticker-phases">
-        <div class="ticker-phase active" id="phase-pregame">🅿️ Pre-Game</div>
-        <div class="ticker-phase" id="phase-entry">🚪 Entry</div>
-        <div class="ticker-phase" id="phase-kickoff">⚽ Kickoff</div>
-        <div class="ticker-phase" id="phase-firsthalf">🏟 1st Half</div>
-        <div class="ticker-phase" id="phase-halftime">⏸ Halftime</div>
-        <div class="ticker-phase" id="phase-secondhalf">🏟 2nd Half</div>
-        <div class="ticker-phase" id="phase-fulltime">🏁 Full Time</div>
+        <div class="ticker-phase active" id="phase-pregame">
+          <i
+            class="fa-solid fa-square-parking ticker-phase-icon"
+            aria-hidden="true"
+          ></i>
+          Pre-Game
+        </div>
+        <div class="ticker-phase" id="phase-entry">
+          <i
+            class="fa-solid fa-door-open ticker-phase-icon"
+            aria-hidden="true"
+          ></i>
+          Entry
+        </div>
+        <div class="ticker-phase" id="phase-kickoff">
+          <i
+            class="fa-regular fa-futbol ticker-phase-icon"
+            aria-hidden="true"
+          ></i>
+          Kickoff
+        </div>
+        <div class="ticker-phase" id="phase-firsthalf">
+          <i
+            class="fa-solid fa-stopwatch ticker-phase-icon"
+            aria-hidden="true"
+          ></i>
+          1st Half
+        </div>
+        <div class="ticker-phase" id="phase-halftime">
+          <i class="fa-solid fa-pause ticker-phase-icon" aria-hidden="true"></i>
+          Halftime
+        </div>
+        <div class="ticker-phase" id="phase-secondhalf">
+          <i
+            class="fa-solid fa-stopwatch ticker-phase-icon"
+            aria-hidden="true"
+          ></i>
+          2nd Half
+        </div>
+        <div class="ticker-phase" id="phase-fulltime">
+          <i
+            class="fa-solid fa-flag-checkered ticker-phase-icon"
+            aria-hidden="true"
+          ></i>
+          Full Time
+        </div>
       </div>
       <div class="sim-clock" aria-live="polite">
         <span class="live-dot"></span>
@@ -2382,16 +2966,20 @@
     <div class="weather-strip">
       <div class="weather-info">
         <div class="weather-item">
-          ☀️ <span class="val" id="wx-temp">24°C</span>
+          <i class="fa-solid fa-sun fa-icon" aria-hidden="true"></i>
+          <span class="val" id="wx-temp">24°C</span>
         </div>
         <div class="weather-item">
-          💨 <span class="val" id="wx-wind">8 km/h</span>
+          <i class="fa-solid fa-wind fa-icon" aria-hidden="true"></i>
+          <span class="val" id="wx-wind">8 km/h</span>
         </div>
         <div class="weather-item">
-          💧 <span class="val" id="wx-humidity">45%</span>
+          <i class="fa-solid fa-droplet fa-icon" aria-hidden="true"></i>
+          <span class="val" id="wx-humidity">45%</span>
         </div>
         <div class="weather-item">
-          📡 Sensors: <span class="val" id="wx-sensors">128/128</span>
+          <i class="fa-solid fa-signal fa-icon" aria-hidden="true"></i>
+          Sensors: <span class="val" id="wx-sensors">128/128</span>
         </div>
       </div>
       <div class="safety-status">
@@ -2399,6 +2987,17 @@
         <span id="safety-text">ALL CLEAR</span>
       </div>
     </div>
+
+    <section class="dashboard-intro" aria-label="Dashboard overview">
+      <div>
+        <p class="intro-kicker">Match Day Command Center</p>
+        <h1 class="intro-title">Welcome back, VenueFlow team</h1>
+      </div>
+      <div class="intro-chip-row">
+        <span class="intro-chip">Live simulation running</span>
+        <span class="intro-chip">128 sensors online</span>
+      </div>
+    </section>
 
     <!-- ================================
        ATTENDEE VIEW
@@ -2415,7 +3014,13 @@
           <div class="card heatmap-card">
             <div class="card-header">
               <div class="card-title">
-                <span class="icon">🗺️</span> Venue Heatmap
+                <span class="icon"
+                  ><i
+                    class="fa-solid fa-map-location-dot"
+                    aria-hidden="true"
+                  ></i
+                ></span>
+                Venue Heatmap
               </div>
               <span class="badge badge-live">● LIVE</span>
             </div>
@@ -2429,7 +3034,7 @@
               >
                 <defs>
                   <radialGradient id="fieldGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="rgba(0, 240, 255, 0.05)" />
+                    <stop offset="0%" stop-color="rgba(96, 203, 141, 0.25)" />
                     <stop offset="100%" stop-color="transparent" />
                   </radialGradient>
                   <filter id="glow">
@@ -2540,7 +3145,7 @@
                   rx="160"
                   ry="110"
                   fill="url(#fieldGlow)"
-                  stroke="rgba(0,240,255,0.1)"
+                  stroke="rgba(47, 182, 112, 0.25)"
                   stroke-width="1"
                 />
                 <ellipse
@@ -2548,8 +3153,8 @@
                   cy="300"
                   rx="148"
                   ry="98"
-                  fill="#080e12"
-                  stroke="rgba(0,240,255,0.08)"
+                  fill="#edf4f0"
+                  stroke="rgba(47, 182, 112, 0.2)"
                   stroke-width="0.5"
                 />
                 <line
@@ -2557,7 +3162,7 @@
                   y1="202"
                   x2="400"
                   y2="398"
-                  stroke="rgba(0,240,255,0.06)"
+                  stroke="rgba(47, 182, 112, 0.2)"
                   stroke-width="0.5"
                 />
                 <ellipse
@@ -2566,7 +3171,7 @@
                   rx="28"
                   ry="18"
                   fill="none"
-                  stroke="rgba(0,240,255,0.06)"
+                  stroke="rgba(47, 182, 112, 0.2)"
                   stroke-width="0.5"
                 />
                 <text x="400" y="300" class="field-label">FIELD</text>
@@ -2666,7 +3271,7 @@
                   data-zone="food-n"
                   fill="#121828"
                 />
-                <text x="398" y="65" class="zone-label" font-size="8">🍔</text>
+                <text x="398" y="65" class="zone-label" font-size="8">FD</text>
 
                 <rect
                   id="zone-food-e"
@@ -2680,7 +3285,7 @@
                   data-zone="food-e"
                   fill="#121828"
                 />
-                <text x="710" y="303" class="zone-label" font-size="8">🌭</text>
+                <text x="710" y="303" class="zone-label" font-size="8">FD</text>
 
                 <rect
                   id="zone-food-s"
@@ -2694,7 +3299,7 @@
                   data-zone="food-s"
                   fill="#121828"
                 />
-                <text x="445" y="548" class="zone-label" font-size="8">🍕</text>
+                <text x="445" y="548" class="zone-label" font-size="8">FD</text>
 
                 <rect
                   id="zone-food-w"
@@ -2708,7 +3313,7 @@
                   data-zone="food-w"
                   fill="#121828"
                 />
-                <text x="78" y="303" class="zone-label" font-size="8">🥤</text>
+                <text x="78" y="303" class="zone-label" font-size="8">FD</text>
 
                 <!-- Restrooms -->
                 <rect
@@ -2722,7 +3327,7 @@
                   data-zone="restroom-ne"
                   fill="#121828"
                 />
-                <text x="601" y="120" class="zone-label" font-size="7">🚻</text>
+                <text x="601" y="120" class="zone-label" font-size="7">RR</text>
 
                 <rect
                   id="zone-restroom-se"
@@ -2735,7 +3340,7 @@
                   data-zone="restroom-se"
                   fill="#121828"
                 />
-                <text x="601" y="476" class="zone-label" font-size="7">🚻</text>
+                <text x="601" y="476" class="zone-label" font-size="7">RR</text>
 
                 <rect
                   id="zone-restroom-sw"
@@ -2748,7 +3353,7 @@
                   data-zone="restroom-sw"
                   fill="#121828"
                 />
-                <text x="196" y="476" class="zone-label" font-size="7">🚻</text>
+                <text x="196" y="476" class="zone-label" font-size="7">RR</text>
 
                 <rect
                   id="zone-restroom-nw"
@@ -2761,7 +3366,7 @@
                   data-zone="restroom-nw"
                   fill="#121828"
                 />
-                <text x="196" y="120" class="zone-label" font-size="7">🚻</text>
+                <text x="196" y="120" class="zone-label" font-size="7">RR</text>
 
                 <!-- Merch -->
                 <rect
@@ -2775,7 +3380,7 @@
                   data-zone="merch-1"
                   fill="#121828"
                 />
-                <text x="296" y="48" class="zone-label" font-size="7">👕</text>
+                <text x="296" y="48" class="zone-label" font-size="7">MR</text>
 
                 <rect
                   id="zone-merch-2"
@@ -2788,7 +3393,7 @@
                   data-zone="merch-2"
                   fill="#121828"
                 />
-                <text x="506" y="534" class="zone-label" font-size="7">👕</text>
+                <text x="506" y="534" class="zone-label" font-size="7">MR</text>
 
                 <!-- Zone labels -->
                 <text
@@ -2920,7 +3525,7 @@
                     font-size="6"
                     fill="white"
                   >
-                    ♿
+                    A
                   </text>
                 </g>
                 <g class="a11y-marker">
@@ -2939,7 +3544,7 @@
                     font-size="6"
                     fill="white"
                   >
-                    ♿
+                    A
                   </text>
                 </g>
                 <g class="a11y-marker">
@@ -2958,7 +3563,7 @@
                     font-size="6"
                     fill="white"
                   >
-                    🔇
+                    Q
                   </text>
                 </g>
                 <g class="a11y-marker">
@@ -2977,7 +3582,7 @@
                     font-size="6"
                     fill="white"
                   >
-                    🛗
+                    E
                   </text>
                 </g>
 
@@ -2994,6 +3599,41 @@
               <span class="legend-label">High</span>
             </div>
           </div>
+        </div>
+        <div class="card arrival-card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="icon"
+                ><i class="fa-solid fa-calendar-check" aria-hidden="true"></i
+              ></span>
+              Arrival Advisor
+            </div>
+          </div>
+          <div class="arrival-time" id="arrival-time">T-75 min</div>
+          <div class="arrival-detail" id="arrival-detail">
+            Arrive 75 min before kickoff via Gate G. Predicted wait: ~2 min.
+          </div>
+          <button class="share-btn" onclick="shareArrival()">
+            <i class="fa-solid fa-copy fa-inline-icon" aria-hidden="true"></i>
+            Copy to Share
+          </button>
+        </div>
+        <div class="card vqueue-card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="icon"
+                ><i
+                  class="fa-solid fa-mobile-screen-button"
+                  aria-hidden="true"
+                ></i
+              ></span>
+              Virtual Queue
+            </div>
+            <span class="badge badge-new"
+              ><i class="fa-solid fa-circle-check fa-inline-icon"></i>NEW</span
+            >
+          </div>
+          <div class="vqueue-slots" id="vqueue-slots"></div>
         </div>
       </div>
 
@@ -3019,7 +3659,10 @@
         <div class="card smart-path-card">
           <div class="card-header">
             <div class="card-title">
-              <span class="icon">🧭</span> Smart Path
+              <span class="icon"
+                ><i class="fa-solid fa-route" aria-hidden="true"></i
+              ></span>
+              Smart Path
             </div>
             <span class="badge badge-live">● LIVE</span>
           </div>
@@ -3051,7 +3694,9 @@
           </div>
           <div class="path-steps" id="path-steps">
             <div class="path-step">
-              <div class="path-step-icon">🚗</div>
+              <div class="path-step-icon">
+                <i class="fa-solid fa-square-parking" aria-hidden="true"></i>
+              </div>
               <div class="path-step-info">
                 <div class="path-step-label">Best Parking</div>
                 <div class="path-step-value" id="sp-parking">
@@ -3061,7 +3706,9 @@
               <div class="path-step-time" id="sp-park-t">~4 min</div>
             </div>
             <div class="path-step">
-              <div class="path-step-icon">🚪</div>
+              <div class="path-step-icon">
+                <i class="fa-solid fa-door-open" aria-hidden="true"></i>
+              </div>
               <div class="path-step-info">
                 <div class="path-step-label">Recommended Gate</div>
                 <div class="path-step-value" id="sp-gate">Gate G</div>
@@ -3069,7 +3716,9 @@
               <div class="path-step-time" id="sp-gate-t">~2 min</div>
             </div>
             <div class="path-step">
-              <div class="path-step-icon">🍔</div>
+              <div class="path-step-icon">
+                <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+              </div>
               <div class="path-step-info">
                 <div class="path-step-label">Nearest Low-Wait Food</div>
                 <div class="path-step-value" id="sp-food">Stand W — Drinks</div>
@@ -3077,7 +3726,9 @@
               <div class="path-step-time" id="sp-food-t">~1 min</div>
             </div>
             <div class="path-step">
-              <div class="path-step-icon">🚻</div>
+              <div class="path-step-icon">
+                <i class="fa-solid fa-restroom" aria-hidden="true"></i>
+              </div>
               <div class="path-step-info">
                 <div class="path-step-label">Closest Restroom</div>
                 <div class="path-step-value" id="sp-rest">NW Restroom</div>
@@ -3091,39 +3742,21 @@
         <div class="card">
           <div class="card-header">
             <div class="card-title">
-              <span class="icon">⏱️</span> Wait Time Oracle
+              <span class="icon"
+                ><i class="fa-solid fa-clock" aria-hidden="true"></i
+              ></span>
+              Wait Time Oracle
             </div>
-            <span class="badge badge-ml">🤖 ML</span>
+            <span class="badge badge-ml"
+              ><i class="fa-solid fa-microchip fa-inline-icon"></i>ML</span
+            >
           </div>
           <div class="wait-list" id="wait-list"></div>
         </div>
 
         <!-- Virtual Queue -->
-        <div class="card vqueue-card">
-          <div class="card-header">
-            <div class="card-title">
-              <span class="icon">📱</span> Virtual Queue
-            </div>
-            <span class="badge badge-new">✨ NEW</span>
-          </div>
-          <div class="vqueue-slots" id="vqueue-slots"></div>
-        </div>
 
         <!-- Pre-Arrival -->
-        <div class="card arrival-card">
-          <div class="card-header">
-            <div class="card-title">
-              <span class="icon">🕐</span> Arrival Advisor
-            </div>
-          </div>
-          <div class="arrival-time" id="arrival-time">T-75 min</div>
-          <div class="arrival-detail" id="arrival-detail">
-            Arrive 75 min before kickoff via Gate G. Predicted wait: ~2 min.
-          </div>
-          <button class="share-btn" onclick="shareArrival()">
-            📋 Copy to Share
-          </button>
-        </div>
       </div>
     </div>
 
@@ -3140,7 +3773,10 @@
         <div class="card ops-full">
           <div class="card-header">
             <div class="card-title">
-              <span class="icon">📊</span> Live Occupancy
+              <span class="icon"
+                ><i class="fa-solid fa-chart-column" aria-hidden="true"></i
+              ></span>
+              Live Occupancy
             </div>
             <span class="badge badge-live">● LIVE</span>
           </div>
@@ -3171,7 +3807,10 @@
         <div class="card ops-full ops-command-card">
           <div class="card-header">
             <div class="card-title">
-              <span class="icon">🕹️</span> Crowd Control Console
+              <span class="icon"
+                ><i class="fa-solid fa-sliders" aria-hidden="true"></i
+              ></span>
+              Crowd Control Console
             </div>
             <span class="badge badge-live">ACTIONABLE</span>
           </div>
@@ -3235,7 +3874,10 @@
         <div class="card">
           <div class="card-header">
             <div class="card-title">
-              <span class="icon">👷</span> Staff Dispatch
+              <span class="icon"
+                ><i class="fa-solid fa-user-shield" aria-hidden="true"></i
+              ></span>
+              Staff Dispatch
             </div>
           </div>
 
@@ -3260,12 +3902,21 @@
         <div class="card">
           <div class="card-header">
             <div class="card-title">
-              <span class="icon">🌊</span> Predictive Wave
+              <span class="icon"
+                ><i class="fa-solid fa-wave-square" aria-hidden="true"></i
+              ></span>
+              Predictive Wave
             </div>
           </div>
           <div id="wave-preds">
             <div class="wave-block" id="wave-1">
-              <div class="wave-title">⚠️ Predicted Bottleneck</div>
+              <div class="wave-title">
+                <i
+                  class="fa-solid fa-triangle-exclamation fa-inline-icon"
+                  aria-hidden="true"
+                ></i>
+                Predicted Bottleneck
+              </div>
               <div class="wave-text" id="wave-1-txt">
                 North Concourse expected to reach 85%
               </div>
@@ -3299,14 +3950,21 @@
             id="emrg-btn"
             onclick="toggleEmergency()"
           >
-            🚨 Activate Emergency Corridors
+            <i
+              class="fa-solid fa-triangle-exclamation fa-inline-icon"
+              aria-hidden="true"
+            ></i>
+            Activate Emergency Corridors
           </button>
         </div>
 
         <div class="card">
           <div class="card-header">
             <div class="card-title">
-              <span class="icon">🧠</span> Action Playbook
+              <span class="icon"
+                ><i class="fa-solid fa-book-open" aria-hidden="true"></i
+              ></span>
+              Action Playbook
             </div>
             <span class="badge badge-ml">AUTO</span>
           </div>
@@ -3316,7 +3974,10 @@
         <div class="card">
           <div class="card-header">
             <div class="card-title">
-              <span class="icon">📡</span> Coordination Log
+              <span class="icon"
+                ><i class="fa-solid fa-radio" aria-hidden="true"></i
+              ></span>
+              Coordination Log
             </div>
           </div>
           <div class="coord-log" id="coord-log"></div>
@@ -3325,7 +3986,10 @@
         <div class="card ops-full">
           <div class="card-header">
             <div class="card-title">
-              <span class="icon">📈</span> Gate Entry Flow
+              <span class="icon"
+                ><i class="fa-solid fa-chart-line" aria-hidden="true"></i
+              ></span>
+              Gate Entry Flow
             </div>
           </div>
           <div class="chart-wrap" id="flow-chart-wrap">
@@ -3388,13 +4052,16 @@
         <div class="card fan-full">
           <div class="card-header">
             <div class="card-title">
-              <span class="icon">🎫</span> Digital Ticket
+              <span class="icon"
+                ><i class="fa-solid fa-ticket" aria-hidden="true"></i
+              ></span>
+              Digital Ticket
             </div>
           </div>
           <div class="ticket-mini">
-            <div class="ticket-qr">📱</div>
+            <div class="ticket-qr"><i class="fa-solid fa-qrcode"></i></div>
             <div class="ticket-info">
-              <div class="ticket-event">🏆 Champions League Final 2026</div>
+              <div class="ticket-event">Champions League Final 2026</div>
               <div class="ticket-seat" id="tkt-seat">§1 · Row C · Seat 14</div>
               <div class="ticket-gate" id="tkt-gate">
                 Recommended: Gate A · Lot A Parking
@@ -3406,7 +4073,12 @@
         <!-- Fan Engagement Score -->
         <div class="card">
           <div class="card-header">
-            <div class="card-title"><span class="icon">⭐</span> Fan Score</div>
+            <div class="card-title">
+              <span class="icon"
+                ><i class="fa-solid fa-medal" aria-hidden="true"></i
+              ></span>
+              Fan Score
+            </div>
           </div>
           <div class="engagement-ring">
             <svg viewBox="0 0 100 100">
@@ -3455,7 +4127,7 @@
               "
               id="fan-rank"
             >
-              🏅 Gold Tier
+              Gold Tier
             </div>
           </div>
         </div>
@@ -3463,23 +4135,39 @@
         <!-- Live Poll -->
         <div class="card">
           <div class="card-header">
-            <div class="card-title"><span class="icon">📊</span> Live Poll</div>
+            <div class="card-title">
+              <span class="icon"
+                ><i class="fa-solid fa-chart-pie" aria-hidden="true"></i
+              ></span>
+              Live Poll
+            </div>
             <span class="badge badge-live">● LIVE</span>
           </div>
           <div style="font-size: 12px; font-weight: 700; margin-bottom: 8px">
-            ⚽ Who scores first?
+            <i
+              class="fa-regular fa-futbol fa-inline-icon"
+              aria-hidden="true"
+            ></i>
+            Who scores first?
           </div>
           <div id="poll-options">
             <div class="poll-option" onclick="votePoll(this, 0)">
-              <span class="poll-label">🔵 Home Team</span>
+              <span class="poll-label"
+                ><span class="poll-team-dot home"></span>Home Team</span
+              >
               <span class="poll-pct" data-pct="58">58%</span>
             </div>
             <div class="poll-option" onclick="votePoll(this, 1)">
-              <span class="poll-label">🔴 Away Team</span>
+              <span class="poll-label"
+                ><span class="poll-team-dot away"></span>Away Team</span
+              >
               <span class="poll-pct" data-pct="32">32%</span>
             </div>
             <div class="poll-option" onclick="votePoll(this, 2)">
-              <span class="poll-label">⚪ No Goal in 1st Half</span>
+              <span class="poll-label"
+                ><span class="poll-team-dot neutral"></span>No Goal in 1st
+                Half</span
+              >
               <span class="poll-pct" data-pct="10">10%</span>
             </div>
           </div>
@@ -3499,7 +4187,10 @@
         <div class="card fan-full">
           <div class="card-header">
             <div class="card-title">
-              <span class="icon">📍</span> Nearby Highlights
+              <span class="icon"
+                ><i class="fa-solid fa-location-dot" aria-hidden="true"></i
+              ></span>
+              Nearby Highlights
             </div>
           </div>
           <div
@@ -3518,7 +4209,9 @@
                 text-align: center;
               "
             >
-              <div style="font-size: 20px">🍕</div>
+              <div style="font-size: 20px">
+                <i class="fa-solid fa-pizza-slice" aria-hidden="true"></i>
+              </div>
               <div style="font-size: 10px; font-weight: 600; margin-top: 4px">
                 Food Court S
               </div>
@@ -3540,7 +4233,9 @@
                 text-align: center;
               "
             >
-              <div style="font-size: 20px">🎁</div>
+              <div style="font-size: 20px">
+                <i class="fa-solid fa-shirt" aria-hidden="true"></i>
+              </div>
               <div style="font-size: 10px; font-weight: 600; margin-top: 4px">
                 Merch Store
               </div>
@@ -3562,7 +4257,9 @@
                 text-align: center;
               "
             >
-              <div style="font-size: 20px">📸</div>
+              <div style="font-size: 20px">
+                <i class="fa-solid fa-camera" aria-hidden="true"></i>
+              </div>
               <div style="font-size: 10px; font-weight: 600; margin-top: 4px">
                 Photo Zone
               </div>
@@ -3597,8 +4294,11 @@
       aria-modal="true"
     >
       <div class="modal">
-        <button class="modal-x" onclick="closeGroupSync()">✕</button>
-        <div class="modal-title" id="grp-title">👥 Group Sync</div>
+        <button class="modal-x" onclick="closeGroupSync()">X</button>
+        <div class="modal-title" id="grp-title">
+          <i class="fa-solid fa-users fa-inline-icon" aria-hidden="true"></i>
+          Group Sync
+        </div>
         <div class="modal-sub">
           Enter seat locations to find the best meetup point
         </div>
@@ -3628,7 +4328,13 @@
           Find Best Meetup Point
         </button>
         <div class="modal-result" id="grp-result">
-          <div class="modal-result-label">🎯 Optimal Meetup</div>
+          <div class="modal-result-label">
+            <i
+              class="fa-solid fa-bullseye fa-inline-icon"
+              aria-hidden="true"
+            ></i>
+            Optimal Meetup
+          </div>
           <div class="modal-result-val" id="grp-loc"></div>
           <div class="modal-result-sub" id="grp-detail"></div>
         </div>
@@ -3658,6 +4364,24 @@
       /* =====================================================================
        VENUEFLOW — CONTROLLABLE EVENT OPERATIONS SIMULATION
        ===================================================================== */
+
+      const UI_ICON = {
+        warning:
+          '<i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>',
+        info: '<i class="fa-solid fa-circle-info" aria-hidden="true"></i>',
+        success: '<i class="fa-solid fa-circle-check" aria-hidden="true"></i>',
+        danger: '<i class="fa-solid fa-shield-halved" aria-hidden="true"></i>',
+        gate: '<i class="fa-solid fa-door-open" aria-hidden="true"></i>',
+        food: '<i class="fa-solid fa-utensils" aria-hidden="true"></i>',
+        staff: '<i class="fa-solid fa-user-shield" aria-hidden="true"></i>',
+        broadcast: '<i class="fa-solid fa-bullhorn" aria-hidden="true"></i>',
+        queueOff: '<i class="fa-solid fa-circle-xmark" aria-hidden="true"></i>',
+        copy: '<i class="fa-solid fa-copy" aria-hidden="true"></i>',
+        vote: '<i class="fa-solid fa-square-poll-vertical" aria-hidden="true"></i>',
+        command: '<i class="fa-solid fa-sliders" aria-hidden="true"></i>',
+        globe: '<i class="fa-solid fa-globe" aria-hidden="true"></i>',
+        signal: '<i class="fa-solid fa-radio" aria-hidden="true"></i>',
+      };
 
       const Sim = (() => {
         const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
@@ -4478,7 +5202,7 @@
                     type: "warn",
                     title: `${z.name} building pressure`,
                     msg: `Reroute to ${ZONES[alt].name} to save ~${saved} min.`,
-                    icon: "⚠️",
+                    icon: UI_ICON.warning,
                   });
                 }
               }
@@ -4495,7 +5219,7 @@
               type: "info",
               title: "Halftime queue wave",
               msg: "Food and restroom demand spikes in ~4 min.",
-              icon: "🍔",
+              icon: UI_ICON.food,
             });
           }
 
@@ -4510,7 +5234,7 @@
               type: "info",
               title: "Egress advisory",
               msg: `Early staggered exit recommended via ${ZONES[best].name}.`,
-              icon: "🏃",
+              icon: UI_ICON.gate,
             });
           }
 
@@ -4524,7 +5248,7 @@
               type: "danger",
               title: "Risk threshold exceeded",
               msg: "Activate emergency corridors and dispatch staff to hotspot.",
-              icon: "🚨",
+              icon: UI_ICON.danger,
             });
           }
 
@@ -4537,7 +5261,7 @@
               type: "warn",
               title: "Multiple gates closed",
               msg: "Open at least one alternate gate to stabilize inflow.",
-              icon: "🚪",
+              icon: UI_ICON.gate,
             });
           }
 
@@ -4934,7 +5658,7 @@
                   type: "danger",
                   title: "Emergency Corridors Active",
                   msg: "Directional corridors enabled for crowd relief.",
-                  icon: "🚨",
+                  icon: UI_ICON.danger,
                 },
               };
             case "deactivate-emergency":
@@ -4945,7 +5669,7 @@
                   type: "info",
                   title: "Emergency Corridors Disabled",
                   msg: "Venue flow returned to normal routing.",
-                  icon: "✅",
+                  icon: UI_ICON.success,
                 },
               };
             case "announcement-reroute": {
@@ -4958,7 +5682,7 @@
                     ? "Reroute Broadcast Sent"
                     : "Broadcast Already Active",
                   msg: res.msg,
-                  icon: "📣",
+                  icon: UI_ICON.broadcast,
                 },
               };
             }
@@ -4972,7 +5696,7 @@
                     ? "Concession Messaging Updated"
                     : "Broadcast Already Active",
                   msg: res.msg,
-                  icon: "🍔",
+                  icon: UI_ICON.food,
                 },
               };
             }
@@ -4986,7 +5710,7 @@
                     ? "Staggered Exit Activated"
                     : "Broadcast Already Active",
                   msg: res.msg,
-                  icon: "🏁",
+                  icon: UI_ICON.broadcast,
                 },
               };
             }
@@ -4998,7 +5722,7 @@
                   type: "success",
                   title: "Gate Opened",
                   msg: `${ZONES[target]?.name || "Selected gate"} opened for inflow.`,
-                  icon: "🚪",
+                  icon: UI_ICON.gate,
                 },
               };
             case "restrict-gate":
@@ -5009,7 +5733,7 @@
                   type: "warn",
                   title: "Gate Restricted",
                   msg: `${ZONES[target]?.name || "Selected gate"} moved to controlled throughput.`,
-                  icon: "⚠️",
+                  icon: UI_ICON.warning,
                 },
               };
             case "dispatch-staff": {
@@ -5020,7 +5744,7 @@
                   type: res.ok ? "success" : "warn",
                   title: res.ok ? "Staff Dispatched" : "Dispatch Blocked",
                   msg: res.msg,
-                  icon: "👷",
+                  icon: UI_ICON.staff,
                 },
               };
             }
@@ -5031,7 +5755,7 @@
                   type: "info",
                   title: "No Action Applied",
                   msg: "Unknown playbook action.",
-                  icon: "ℹ️",
+                  icon: UI_ICON.info,
                 },
               };
           }
@@ -5083,39 +5807,33 @@
 
         function denColor(r) {
           r = clamp(r, 0, 1);
-          let R;
-          let G;
-          let B;
-          if (r < 0.5) {
-            const t = r * 2;
-            R = Math.round(0 + t * 251);
-            G = Math.round(240 - t * 49);
-            B = Math.round(255 - t * 219);
-          } else {
-            const t = (r - 0.5) * 2;
-            R = Math.round(251 - t * 7);
-            G = Math.round(191 - t * 128);
-            B = Math.round(36 - t * 12);
+          if (r < 0.55) {
+            const t = r / 0.55;
+            const R = Math.round(142 + t * 38);
+            const G = Math.round(174 + t * 42);
+            const B = Math.round(156 + t * 20);
+            return `rgb(${R},${G},${B})`;
           }
+          const t = (r - 0.55) / 0.45;
+          const R = Math.round(180 - t * 91);
+          const G = Math.round(216 - t * 28);
+          const B = Math.round(176 - t * 82);
           return `rgb(${R},${G},${B})`;
         }
 
         function denFill(r) {
           r = clamp(r, 0, 1);
-          let R;
-          let G;
-          let B;
-          if (r < 0.5) {
-            const t = r * 2;
-            R = Math.round(16 + t * 50);
-            G = Math.round(28 + t * 12);
-            B = Math.round(40 - t * 8);
-          } else {
-            const t = (r - 0.5) * 2;
-            R = Math.round(66 + t * 70);
-            G = Math.round(40 - t * 20);
-            B = Math.round(32 - t * 12);
+          if (r < 0.55) {
+            const t = r / 0.55;
+            const R = Math.round(246 - t * 31);
+            const G = Math.round(249 - t * 20);
+            const B = Math.round(247 - t * 29);
+            return `rgb(${R},${G},${B})`;
           }
+          const t = (r - 0.55) / 0.45;
+          const R = Math.round(215 - t * 78);
+          const G = Math.round(229 - t * 33);
+          const B = Math.round(218 - t * 94);
           return `rgb(${R},${G},${B})`;
         }
 
@@ -5217,7 +5935,11 @@
           const facilities = Object.keys(Sim.ZONES).filter((id) =>
             ["food", "restroom", "merch"].includes(Sim.ZONES[id].type),
           );
-          const icons = { food: "🍔", restroom: "🚻", merch: "👕" };
+          const icons = {
+            food: '<i class="fa-solid fa-utensils" aria-hidden="true"></i>',
+            restroom: '<i class="fa-solid fa-restroom" aria-hidden="true"></i>',
+            merch: '<i class="fa-solid fa-shirt" aria-hidden="true"></i>',
+          };
 
           box.innerHTML = facilities
             .map((id) => {
@@ -5232,7 +5954,7 @@
                     : "var(--accent-rose)";
               const bw = Math.min(100, s.den * 100);
               return `<div class="wait-item">
-            <div class="wait-icon">${icons[z.type] || "📍"}</div>
+            <div class="wait-icon">${icons[z.type] || '<i class="fa-solid fa-location-dot" aria-hidden="true"></i>'}</div>
             <div class="wait-info">
               <div class="wait-name">${z.name}</div>
               <div class="wait-bar-track"><div class="wait-bar-fill" style="width:${bw}%;background:${color}"></div></div>
@@ -5247,10 +5969,26 @@
         function vqueue(st) {
           const box = document.getElementById("vqueue-slots");
           const slots = [
-            { id: "food-n", emoji: "🍔", name: "Food North" },
-            { id: "food-s", emoji: "🍕", name: "Food South" },
-            { id: "restroom-ne", emoji: "🚻", name: "Restroom NE" },
-            { id: "merch-1", emoji: "👕", name: "Merch Stand" },
+            {
+              id: "food-n",
+              icon: '<i class="fa-solid fa-utensils" aria-hidden="true"></i>',
+              name: "Food North",
+            },
+            {
+              id: "food-s",
+              icon: '<i class="fa-solid fa-pizza-slice" aria-hidden="true"></i>',
+              name: "Food South",
+            },
+            {
+              id: "restroom-ne",
+              icon: '<i class="fa-solid fa-restroom" aria-hidden="true"></i>',
+              name: "Restroom NE",
+            },
+            {
+              id: "merch-1",
+              icon: '<i class="fa-solid fa-shirt" aria-hidden="true"></i>',
+              name: "Merch Stand",
+            },
           ];
 
           box.innerHTML = slots
@@ -5259,10 +5997,10 @@
               const wait = Math.max(1, Math.round(s.wait));
               const reserved = vqueueReserved[slot.id];
               const statusText = reserved
-                ? '<span style="color:var(--accent-emerald)">✓ Reserved</span>'
+                ? '<span style="color:var(--accent-emerald)">Reserved</span>'
                 : `<span style="color:${s.den < 0.5 ? "var(--accent-cyan)" : "var(--accent-amber)"}">${wait}m wait</span>`;
               return `<div class="vqueue-slot ${reserved ? "reserved" : ""}" onclick="reserveQueue('${slot.id}', this)">
-            <div style="font-size:18px">${slot.emoji}</div>
+            <div style="font-size:18px">${slot.icon}</div>
             <div class="vqueue-slot-name">${slot.name}</div>
             <div class="vqueue-slot-time">Next window: ~${wait} min</div>
             <div class="vqueue-slot-status">${statusText}</div>
@@ -5925,9 +6663,9 @@
 
         const btn = document.getElementById("emrg-btn");
         btn.classList.toggle("active", emergencyOn);
-        btn.textContent = emergencyOn
-          ? "🚨 Corridors Active — Deactivate"
-          : "🚨 Activate Emergency Corridors";
+        btn.innerHTML = emergencyOn
+          ? '<i class="fa-solid fa-circle-xmark fa-inline-icon" aria-hidden="true"></i>Corridors Active - Deactivate'
+          : '<i class="fa-solid fa-triangle-exclamation fa-inline-icon" aria-hidden="true"></i>Activate Emergency Corridors';
 
         document.querySelectorAll(".emergency-route").forEach((route) => {
           route.style.opacity = emergencyOn ? "1" : "0";
@@ -5943,7 +6681,7 @@
               type: "warn",
               title: "Scenario Update Failed",
               msg: res?.message || "Backend request failed.",
-              icon: "⚠️",
+              icon: UI_ICON.warning,
             });
             return;
           }
@@ -5961,7 +6699,7 @@
           type: "info",
           title: "Scenario Updated",
           msg: `${labels[scenario] || scenario} profile is now active.`,
-          icon: "🎛️",
+          icon: UI_ICON.command,
         });
       }
 
@@ -5986,7 +6724,7 @@
               type: "warn",
               title: "Gate Control Failed",
               msg: res?.message || "Backend request failed.",
-              icon: "⚠️",
+              icon: UI_ICON.warning,
             });
             return;
           }
@@ -6003,7 +6741,7 @@
           type: applied === "closed" ? "warn" : "info",
           title: "Gate Control Updated",
           msg,
-          icon: applied === "closed" ? "⛔" : "🚪",
+          icon: applied === "closed" ? UI_ICON.warning : UI_ICON.gate,
         });
       }
 
@@ -6017,14 +6755,14 @@
             type: "success",
             title: res.title || "Broadcast Sent",
             msg: res.msg || res.message || "Broadcast queued.",
-            icon: "📣",
+            icon: UI_ICON.broadcast,
           });
         } else {
           Render.toast({
             type: "info",
             title: "Broadcast Not Sent",
             msg: res.msg || res.message || "No update.",
-            icon: "ℹ️",
+            icon: UI_ICON.info,
           });
         }
       }
@@ -6046,7 +6784,7 @@
             type: "warn",
             title: "Dispatch Blocked",
             msg: "No staff units available in pool.",
-            icon: "⛔",
+            icon: UI_ICON.warning,
           });
           return;
         }
@@ -6060,18 +6798,18 @@
             type: "warn",
             title: "Dispatch Blocked",
             msg: result.msg || result.message,
-            icon: "⚠️",
+            icon: UI_ICON.warning,
           });
           return;
         }
 
         btn.classList.add("done");
-        btn.textContent = "✓ SENT";
+        btn.textContent = "SENT";
         Render.toast({
           type: "success",
           title: `Staff → ${Sim.ZONES[id].name}`,
           msg: result.msg || result.message,
-          icon: "📡",
+          icon: UI_ICON.signal,
         });
         setTimeout(() => {
           btn.classList.remove("done");
@@ -6086,7 +6824,7 @@
             type: "info",
             title: "Queue Cancelled",
             msg: `Reservation at ${Sim.ZONES[id].name} removed.`,
-            icon: "❌",
+            icon: UI_ICON.queueOff,
           });
         } else {
           vqueueReserved[id] = true;
@@ -6094,7 +6832,7 @@
             type: "success",
             title: "Queue Reserved",
             msg: `Your slot at ${Sim.ZONES[id].name} is now held.`,
-            icon: "✅",
+            icon: UI_ICON.success,
           });
         }
       }
@@ -6131,7 +6869,7 @@
             type: "info",
             title: "Copied",
             msg: "Arrival plan copied to clipboard.",
-            icon: "📋",
+            icon: UI_ICON.copy,
           });
         });
       }
@@ -6145,7 +6883,7 @@
           type: "success",
           title: "Vote Recorded",
           msg: "Your prediction has been submitted.",
-          icon: "🗳️",
+          icon: UI_ICON.vote,
         });
         const count = document.getElementById("poll-count");
         count.textContent = (
@@ -6169,10 +6907,10 @@
             `${Math.round(s.den * 100)}%`;
           document.getElementById("tip-trend").textContent =
             s.trend === "rising"
-              ? "📈 Rising"
+              ? "Rising"
               : s.trend === "falling"
-                ? "📉 Falling"
-                : "➡️ Stable";
+                ? "Falling"
+                : "Stable";
           document.getElementById("tip-wait").textContent =
             s.wait > 0 ? `~${s.wait.toFixed(1)}m` : "N/A";
           tip.classList.add("visible");
@@ -6290,12 +7028,12 @@
 
           const rank =
             score >= 85
-              ? "🏆 Platinum Tier"
+              ? "Platinum Tier"
               : score >= 72
-                ? "🏅 Gold Tier"
+                ? "Gold Tier"
                 : score >= 60
-                  ? "🥈 Silver Tier"
-                  : "🥉 Bronze Tier";
+                  ? "Silver Tier"
+                  : "Bronze Tier";
           document.getElementById("fan-rank").textContent = rank;
         }
 
@@ -6317,7 +7055,7 @@
             type: "info",
             title: `Phase: ${name}`,
             msg: `Simulation entered ${name.toLowerCase()}.`,
-            icon: "📣",
+            icon: UI_ICON.broadcast,
           });
         }
       }
@@ -6328,14 +7066,14 @@
           type: "info",
           title: "Backend Mode Enabled",
           msg: "Live control now syncs with /api and realtime snapshots.",
-          icon: "🌐",
+          icon: UI_ICON.globe,
         });
       } else if (Platform.enabled) {
         Render.toast({
           type: "warn",
           title: "Backend Mode Requested",
           msg: "Serve this file from the platform server to enable API sync.",
-          icon: "⚠️",
+          icon: UI_ICON.warning,
         });
       }
 
