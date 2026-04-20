@@ -1,0 +1,16 @@
+{
+  "name": "venueflow-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VenueFlow realtime crowd operations platform",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "ws": "^8.18.0"
+  }
+}
