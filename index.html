@@ -105,6 +105,25 @@
         line-height: 1.5;
       }
 
+      .skip-link {
+        position: absolute;
+        top: -44px;
+        left: 12px;
+        background: var(--accent-violet);
+        color: var(--bg-secondary);
+        border-radius: var(--radius-sm);
+        padding: 8px 12px;
+        font-size: 12px;
+        font-weight: 700;
+        text-decoration: none;
+        z-index: 10000;
+        transition: top var(--transition-fast);
+      }
+
+      .skip-link:focus-visible {
+        top: 12px;
+      }
+
       /* Noise Grain */
       body::before {
         content: "";
@@ -155,6 +174,11 @@
         outline: none;
         background: none;
         color: inherit;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--accent-cyan);
+        outline-offset: 2px;
       }
 
       input,
@@ -1301,6 +1325,29 @@
         transition: all var(--transition-fast);
       }
 
+      .arrival-actions {
+        margin-top: 8px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .google-btn {
+        padding: 5px 12px;
+        font-size: 10px;
+        font-weight: 600;
+        background: var(--accent-violet-dim);
+        color: var(--accent-violet);
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border-medium);
+        transition: all var(--transition-fast);
+      }
+
+      .google-btn:hover {
+        background: var(--accent-violet);
+        color: var(--bg-secondary);
+      }
+
       .share-btn:hover {
         background: var(--accent-cyan);
         color: var(--bg-void);
@@ -1497,6 +1544,12 @@
         border-radius: var(--radius-sm);
         transition: all var(--transition-fast);
         cursor: pointer;
+      }
+
+      .dispatch-row-main {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
       }
 
       .dispatch-row:hover {
@@ -1988,6 +2041,7 @@
       }
 
       .poll-option {
+        width: 100%;
         padding: 8px 10px;
         background: var(--bg-tertiary);
         border-radius: var(--radius-sm);
@@ -1998,6 +2052,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        text-align: left;
       }
 
       .poll-option:hover {
@@ -2840,6 +2895,7 @@
     </style>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- ================================
        TOP BAR
        ================================ -->
@@ -2988,7 +3044,12 @@
       </div>
     </div>
 
-    <section class="dashboard-intro" aria-label="Dashboard overview">
+    <section
+      class="dashboard-intro"
+      id="main-content"
+      tabindex="-1"
+      aria-label="Dashboard overview"
+    >
       <div>
         <p class="intro-kicker">Match Day Command Center</p>
         <h1 class="intro-title">Welcome back, VenueFlow team</h1>
@@ -3613,10 +3674,19 @@
           <div class="arrival-detail" id="arrival-detail">
             Arrive 75 min before kickoff via Gate G. Predicted wait: ~2 min.
           </div>
-          <button class="share-btn" onclick="shareArrival()">
-            <i class="fa-solid fa-copy fa-inline-icon" aria-hidden="true"></i>
-            Copy to Share
-          </button>
+          <div class="arrival-actions">
+            <button class="share-btn" onclick="shareArrival()">
+              <i class="fa-solid fa-copy fa-inline-icon" aria-hidden="true"></i>
+              Copy to Share
+            </button>
+            <button class="google-btn" onclick="addToGoogleCalendar()">
+              <i
+                class="fa-brands fa-google fa-inline-icon"
+                aria-hidden="true"
+              ></i>
+              Add to Google Calendar
+            </button>
+          </div>
         </div>
         <div class="card vqueue-card">
           <div class="card-header">
@@ -3736,6 +3806,13 @@
               <div class="path-step-time" id="sp-rest-t">~1 min</div>
             </div>
           </div>
+          <button class="google-btn" onclick="openGoogleMapsRoute()">
+            <i
+              class="fa-brands fa-google fa-inline-icon"
+              aria-hidden="true"
+            ></i>
+            Open Route in Google Maps
+          </button>
         </div>
 
         <!-- Wait Time Oracle -->
@@ -4151,25 +4228,37 @@
             Who scores first?
           </div>
           <div id="poll-options">
-            <div class="poll-option" onclick="votePoll(this, 0)">
+            <button
+              type="button"
+              class="poll-option"
+              onclick="votePoll(this, 0)"
+            >
               <span class="poll-label"
                 ><span class="poll-team-dot home"></span>Home Team</span
               >
               <span class="poll-pct" data-pct="58">58%</span>
-            </div>
-            <div class="poll-option" onclick="votePoll(this, 1)">
+            </button>
+            <button
+              type="button"
+              class="poll-option"
+              onclick="votePoll(this, 1)"
+            >
               <span class="poll-label"
                 ><span class="poll-team-dot away"></span>Away Team</span
               >
               <span class="poll-pct" data-pct="32">32%</span>
-            </div>
-            <div class="poll-option" onclick="votePoll(this, 2)">
+            </button>
+            <button
+              type="button"
+              class="poll-option"
+              onclick="votePoll(this, 2)"
+            >
               <span class="poll-label"
                 ><span class="poll-team-dot neutral"></span>No Goal in 1st
                 Half</span
               >
               <span class="poll-pct" data-pct="10">10%</span>
-            </div>
+            </button>
           </div>
           <div
             style="
@@ -4294,7 +4383,13 @@
       aria-modal="true"
     >
       <div class="modal">
-        <button class="modal-x" onclick="closeGroupSync()">X</button>
+        <button
+          class="modal-x"
+          onclick="closeGroupSync()"
+          aria-label="Close group sync modal"
+        >
+          X
+        </button>
         <div class="modal-title" id="grp-title">
           <i class="fa-solid fa-users fa-inline-icon" aria-hidden="true"></i>
           Group Sync
@@ -5999,12 +6094,12 @@
               const statusText = reserved
                 ? '<span style="color:var(--accent-emerald)">Reserved</span>'
                 : `<span style="color:${s.den < 0.5 ? "var(--accent-cyan)" : "var(--accent-amber)"}">${wait}m wait</span>`;
-              return `<div class="vqueue-slot ${reserved ? "reserved" : ""}" onclick="reserveQueue('${slot.id}', this)">
+              return `<button type="button" class="vqueue-slot ${reserved ? "reserved" : ""}" onclick="reserveQueue('${slot.id}')">
             <div style="font-size:18px">${slot.icon}</div>
             <div class="vqueue-slot-name">${slot.name}</div>
             <div class="vqueue-slot-time">Next window: ~${wait} min</div>
             <div class="vqueue-slot-status">${statusText}</div>
-          </div>`;
+          </button>`;
             })
             .join("");
         }
@@ -6101,12 +6196,12 @@
               const assigned = Sim.getAssignedStaff(id);
               const disabledClass = available < 2 ? "disabled" : "";
               const btnText = available < 2 ? "NO STAFF" : "+2 STAFF";
-              return `<div class="dispatch-row" onclick="dispatchTo('${id}', this)">
-            <div>
+              return `<div class="dispatch-row">
+            <div class="dispatch-row-main">
               <div class="dispatch-zone-name" style="color:${color}">${z.name}</div>
               <div class="dispatch-zone-count">${Math.round(s.occ)}/${z.cap} (${pct}%) · Team ${assigned}</div>
             </div>
-            <button class="dispatch-btn ${disabledClass}">${btnText}</button>
+            <button type="button" class="dispatch-btn ${disabledClass}" onclick="dispatchTo('${id}', this.closest('.dispatch-row'))">${btnText}</button>
           </div>`;
             })
             .join("");
@@ -6193,6 +6288,10 @@
             .replaceAll("'", "&#039;");
         }
 
+        function escapeAttr(text) {
+          return escapeHtml(text).replaceAll("`", "&#096;");
+        }
+
         function playbook(items) {
           const box = document.getElementById("ops-playbook");
           if (!items.length) {
@@ -6209,7 +6308,7 @@
               <div class="playbook-title">${escapeHtml(item.title)}</div>
               <div class="playbook-detail">${escapeHtml(item.detail)}</div>
             </div>
-            <button class="playbook-btn" onclick="applyPlaybookAction('${item.action}', '${target}')">Run</button>
+            <button class="playbook-btn" onclick="applyPlaybookAction('${escapeAttr(item.action)}', '${escapeAttr(target)}')">Run</button>
           </div>`;
             })
             .join("");
@@ -6321,7 +6420,7 @@
 
           const t = document.createElement("div");
           t.className = `toast ${cls}`;
-          t.innerHTML = `<div class="toast-icon">${alert.icon}</div><div class="toast-body"><div class="toast-head">${alert.title}</div><div class="toast-msg">${alert.msg}</div><div class="toast-ts">Just now</div></div>`;
+          t.innerHTML = `<div class="toast-icon">${alert.icon}</div><div class="toast-body"><div class="toast-head">${escapeHtml(alert.title)}</div><div class="toast-msg">${escapeHtml(alert.msg)}</div><div class="toast-ts">Just now</div></div>`;
           t.addEventListener("click", () => {
             t.classList.add("exiting");
             setTimeout(() => t.remove(), 300);
@@ -6434,6 +6533,7 @@
           if (!raw) return "";
           try {
             const url = new URL(raw, window.location.origin);
+            if (!["http:", "https:"].includes(url.protocol)) return "";
             const cleanedPath = url.pathname.replace(/\/+$/, "");
             const pathWithApi = cleanedPath.endsWith("/api")
               ? cleanedPath
@@ -6450,7 +6550,16 @@
           (hasServerOrigin ? `${window.location.origin}/api` : "");
 
         function deriveWsEndpoint() {
-          if (backendWsParam) return backendWsParam;
+          if (backendWsParam) {
+            try {
+              const url = new URL(backendWsParam, window.location.origin);
+              return ["ws:", "wss:"].includes(url.protocol)
+                ? url.toString()
+                : "";
+            } catch {
+              return "";
+            }
+          }
 
           if (remoteApiBase) {
             try {
@@ -6536,7 +6645,12 @@
         async function pullSnapshot() {
           if (!canUseBackend()) return;
           try {
-            const response = await fetch(`${apiBase}/snapshot`);
+            const controller = new AbortController();
+            const timer = window.setTimeout(() => controller.abort(), 3000);
+            const response = await fetch(`${apiBase}/snapshot`, {
+              signal: controller.signal,
+            });
+            window.clearTimeout(timer);
             const payload = await response.json();
             if (payload && typeof payload === "object") {
               Sim.hydrateSnapshot(payload);
@@ -6557,13 +6671,17 @@
           }
 
           try {
+            const controller = new AbortController();
+            const timer = window.setTimeout(() => controller.abort(), 5000);
             const response = await fetch(`${apiBase}${path}`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
               },
+              signal: controller.signal,
               body: JSON.stringify(body || {}),
             });
+            window.clearTimeout(timer);
             const payload = await response.json();
             applySnapshotFromPayload(payload);
             return payload;
@@ -6872,6 +6990,28 @@
             icon: UI_ICON.copy,
           });
         });
+      }
+
+      function addToGoogleCalendar() {
+        const start = new Date(Date.now() + 2 * 60 * 60 * 1000);
+        const end = new Date(start.getTime() + 3 * 60 * 60 * 1000);
+        const fmt = (value) =>
+          value.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+        const dates = `${fmt(start)}/${fmt(end)}`;
+        const details = encodeURIComponent(
+          document.getElementById("arrival-detail").textContent,
+        );
+        const url =
+          `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent("VenueFlow Match Day")}` +
+          `&dates=${dates}&details=${details}&location=${encodeURIComponent("VenueFlow Stadium")}`;
+        window.open(url, "_blank", "noopener,noreferrer");
+      }
+
+      function openGoogleMapsRoute() {
+        const path = Sim.smartPath(activeSec);
+        const query = `${path.park}, ${path.gate.name}, VenueFlow Stadium`;
+        const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+        window.open(url, "_blank", "noopener,noreferrer");
       }
 
       function votePoll(el) {
